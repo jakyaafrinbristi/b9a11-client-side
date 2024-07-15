@@ -73,11 +73,18 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login' className="px-5 py-2 bg-pink-100">Login</Link>
+      <Link  to='/login' className="relative px-6 py-3 font-bold text-black group">
+<span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-pink-300 group-hover:translate-x-0 group-hover:translate-y-0"></span>
+<span className="absolute inset-0 w-full h-full border-4 border-black"></span>
+<span className="relative">Login</span>
+</Link>
       </div>
+      
+     
+      
     </div>
   );
 };
 
 export default Navbar;
-{/*  */}
+
