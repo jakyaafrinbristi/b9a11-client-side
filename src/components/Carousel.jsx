@@ -18,7 +18,7 @@ import bgImg3 from '../assets/images/bgImg3.jpg'
 
 export default function Carousel() {
   return (
-    <div className='container px-8 py-10 mx-auto'>
+    <div className='container px-8 py-8 mx-auto'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -35,13 +35,13 @@ export default function Carousel() {
         className="mySwiper"
       >
         <SwiperSlide>
-           <Slide image={bgImg1} text='Get Your Web development projects done in minute'/>
+           <Slide image={bgImg1} text='Transform your look with our expert stylists.'/>
               </SwiperSlide>
         <SwiperSlide>
-           <Slide image={bgImg2} text='Get Your Web development projects done in minute'/>
+           <Slide image={bgImg2} text='Top-notch  services for the modern people.'/>
               </SwiperSlide>
         <SwiperSlide>
-           <Slide image={bgImg3} text='Get Your Web development projects done in minute'/>
+           <Slide image={bgImg3} text='Indulge in our premium makeup services.'/>
               </SwiperSlide>
 
      
