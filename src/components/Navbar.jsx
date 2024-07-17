@@ -1,10 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png"
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+
 
 
 
 
 const Navbar = () => {
+  const {user,logOut}=useContext(AuthContext)
+  
   return (
     <div className="navbar  container mx-auto px-4 py-4">
       <div className="navbar-start">
@@ -72,19 +77,47 @@ const Navbar = () => {
 
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end ">
+      {!user && (<div >
       <Link  to='/login' className="relative px-6 py-3 font-bold text-black group">
 <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-pink-300 group-hover:translate-x-0 group-hover:translate-y-0"></span>
 <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
 <span className="relative">Login</span>
 </Link>
+      </div>)
+      }
+        {user &&(
+      <div
+              tabIndex={0}
+              role='button'
+              className='btn btn-ghost btn-circle avatar '
+            >
+              <div className='w-10 rounded-full' title={user?.displayName}>
+                <img
+                  referrerPolicy='no-referrer'
+                  alt='User Profile Photo'
+                  src={user?.photoURL}
+                />
+              </div>
+              <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              <li className='mt-2'>
+                <button onClick={logOut} className='bg-gray-200 block text-center'>Logout</button>
+              </li>
+              </ul>
+            
+            </div>
+            
+            
+     )}
       </div>
-      
-     
+ 
       
     </div>
+    
   );
 };
 
 export default Navbar;
+
+
 

@@ -1,10 +1,12 @@
+import Carousel from "../components/Carousel";
+
 
 
 const Home = () => {
     return (
         <div>
-            This is home page
-            
+      
+            <Carousel></Carousel>
         </div>
     );
 };
