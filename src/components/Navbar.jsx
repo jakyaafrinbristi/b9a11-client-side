@@ -67,11 +67,18 @@ const Navbar = () => {
             } id='home'>Services</NavLink>
 <div className="dropdown cursor-pointer ">
   <div tabIndex={0} role="button" className="mt-2 font-bold">DashBoard </div>
-  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-44  shadow ">
+  <div className="flex justify-between">
+  <div>
   <li><Link to='/add-service'>Add Service</Link></li>
-<li><Link to='/manage-service'>Manage Service</Link></li>
-<li><Link to='/booked'>Booked-Services</Link></li>
-<li><Link to='/service-do'>Service to do</Link></li>
+  <li><Link to='/manage-service'>Manage Service</Link></li>
+  </div>
+  <div>
+  <li><Link to='/booked'>Booked-Services</Link></li>
+  <li><Link to='/service-do'>Service to do</Link></li>
+  </div>
+  </div>
+
   </ul>
 </div>
 
