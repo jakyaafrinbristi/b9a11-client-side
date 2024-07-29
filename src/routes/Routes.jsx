@@ -13,6 +13,7 @@ import ServiceToDo from "../pages/ServiceToDo";
 import Login from "../pages/Authentication/Login";
 import Registration from "../pages/Authentication/Registration";
 import ShowAll from "../pages/ShowAll";
+import ServiceDetails from "../pages/ServiceDetails";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -53,6 +54,11 @@ import ShowAll from "../pages/ShowAll";
         path:'/show-all',
         element:<ShowAll></ShowAll>,
         loader:()=>fetch(`${import.meta.env.VITE_API_URL}/service`),
+      },
+      {
+        path:'/service/:id',
+        element:<ServiceDetails></ServiceDetails>,
+        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/service/${params.id}`),
       },
 
     ]
