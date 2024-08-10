@@ -4,6 +4,7 @@ import axios from "axios";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import Swal from 'sweetalert2'
+import { Link } from "react-router-dom";
 
 
 
@@ -75,10 +76,10 @@ console.log(err.message)
                         <MdDelete />
                         
                         </button>
-                        <button>
+                        <Link to={`/update/${service._id}`}>
                     
                         <FaRegEdit />
-                        </button>
+                        </Link>
                         </div>
                         <div className="mt-5 font-semibold "> user information:
                         <div className=" flex items-center gap-2 mt-2">
