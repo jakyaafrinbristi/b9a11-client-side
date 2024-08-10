@@ -12,10 +12,10 @@ const ServiceCard = ({service}) => {
     const {service_name,service_area,service_image,service_price,description,_id, serviceProvider}=service
  
     return (
-           <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md">
+           <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-black">
     <img className="object-cover w-full h-64" src={service_image} alt="Article"/>
 
-    <div className="p-5">
+    <div className="p-5 ">
         <div>
             <span className=" font-medium text-blue-600 dark:text-blue-400">Price:{service_price}</span>
             <h3  className="block mt-2 text-xl font-semibold text-black  hover:underline"  >{service_name}</h3>
