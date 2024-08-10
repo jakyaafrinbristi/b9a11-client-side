@@ -3,7 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 
 
@@ -11,20 +11,41 @@ const ManageService = () => {
     const {user}=useContext(AuthContext)
     const [services,setServices]=useState([])
     useEffect(()=>{
-        const getData = async ()=>{
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/services/${user?.email}`)
-          
-            console.log(user)
-            console.log(data) 
-            setServices(data)
-            
-       
-        }
+    
         getData()
         
     },[user])
-    console.log(services)
+    const getData = async ()=>{
+        const {data} = await axios(`${import.meta.env.VITE_API_URL}/services/${user?.email}`)
+      
+        console.log(user)
+        console.log(data) 
+        setServices(data)
+        
    
+    }
+    console.log(services)
+//    delete service
+const deleteButton =async id =>{
+    try{
+        const { data }=await axios.delete(`${import.meta.env.VITE_API_URL}/service/${id}`)
+            console.log(data)
+            Swal.fire({
+                title: 'Success!',
+                text: 'Do you want to  service',
+                icon: 'success',
+                confirmButtonText: 'service deleted'
+              })
+            getData()
+
+    }
+    catch(err){
+console.log(err.message)
+    }
+}
+
+
+
 
     return (
         <div className="container mx-auto px-6 py-10">
@@ -50,7 +71,7 @@ const ManageService = () => {
                     
                 
                         <div className="flex gap-4 mt-3">
-                        <button >
+                        <button onClick={()=>deleteButton(service._id)}>
                         <MdDelete />
                         
                         </button>
