@@ -6,10 +6,10 @@ import { Link, useLoaderData } from "react-router-dom";
 
 
 const ServiceCard = ({service}) => {
-    const {user}=useContext(AuthContext)
+    // const {user}=useContext(AuthContext)
     
  
-    const {service_name,service_area,service_image,service_price,description,_id}=service
+    const {service_name,service_area,service_image,service_price,description,_id, serviceProvider}=service
  
     return (
            <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md">
@@ -25,8 +25,8 @@ const ServiceCard = ({service}) => {
         <div className="mt-4 flex items-center justify-between">
             <div className="flex items-center">
                 <div className="flex items-center">
-                    <img className="object-cover h-10 rounded-full" src={user ?.photoURL} alt="Avatar"/>
-                    <p href="#" className="mx-2 font-semibold text-gray-700 " >{user ?.displayName}</p>
+                    <img className="object-cover h-10 rounded-full" src={serviceProvider?.photo} alt="Avatar"/>
+                    <p href="#" className="mx-2 font-semibold text-gray-700 " >{serviceProvider ?.name}</p>
                 </div>
                 
                 

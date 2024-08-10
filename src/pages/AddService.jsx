@@ -14,6 +14,7 @@ const AddService = () => {
     
         const service_name = form.service_name.value;
         // console.log(service_name)
+        const email = form.email.value;
         const service_price = parseFloat(form.service_price.value);
         const service_area = form.service_area.value;
         const service_image = form.service_image.value;
@@ -26,7 +27,7 @@ const AddService = () => {
             service_image,
             description,
             serviceProvider: {
-                email: user?.email,
+                email,
                 name: user?.displayName,
                 photo: user?.photoURL
             }
