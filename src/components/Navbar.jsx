@@ -23,6 +23,7 @@ const Navbar = () => {
       setTheme('light')
     }
 
+    
   }
   const {user,logOut}=useContext(AuthContext)
   
@@ -106,7 +107,7 @@ const Navbar = () => {
   {/* this hidden checkbox controls the state */}
   <input 
   onChange={handleToggle}
-  type="checkbox" className="theme-controller" value="synthwave" />
+  type="checkbox" className="theme-controller" />
 
   {/* sun icon */}
   <svg

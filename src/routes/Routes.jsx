@@ -15,6 +15,7 @@ import Registration from "../pages/Authentication/Registration";
 import ShowAll from "../pages/ShowAll";
 import ServiceDetails from "../pages/ServiceDetails";
 import Update from "../pages/Update";
+import Booking from "../components/Booking";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -66,6 +67,11 @@ import Update from "../pages/Update";
         element:<Update></Update>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/service/${params.id}`),
       },
+      {
+        path:'/booking/:id',
+        element:<Booking></Booking>,
+        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/service/${params.id}`),
+      }
 
     ]
 
