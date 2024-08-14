@@ -49,7 +49,8 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/services'>Services</Link></li>
+            <li><Link to='/services-card'>Home</Link></li>
+           
             <li>
               <Link to='/dashboard'>DashBoard</Link>
               <ul className="p-2">
@@ -78,7 +79,7 @@ const Navbar = () => {
               isActive ? '  font-bold  mt-2' : 'font-semibold mt-2'
             } id='home'>Home</NavLink>
 
-          <NavLink to='/services'
+          <NavLink to='/services-card'
             className={({ isActive }) =>
               isActive ? '  font-bold  mt-2 ' : 'font-semibold mt-2'
             } id='home'>Services</NavLink>

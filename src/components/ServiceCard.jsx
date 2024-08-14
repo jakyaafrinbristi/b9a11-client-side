@@ -1,15 +1,13 @@
-import { useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
-import toast from "react-hot-toast";
+
 import { GoArrowRight } from "react-icons/go";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const ServiceCard = ({service}) => {
     // const {user}=useContext(AuthContext)
     
  
-    const {service_name,service_area,service_image,service_price,description,_id, serviceProvider}=service
+    const {service_name,service_image,service_price,description,_id, serviceProvider}=service
  
     return (
            <div className="max-w-2xl overflow-hidden bg-gray rounded-lg shadow-md dark:bg-gray-900 ">
@@ -18,7 +16,7 @@ const ServiceCard = ({service}) => {
     <div className="p-5 ">
         <div>
             <span className=" font-medium text-blue-600 dark:text-blue-400">Price:{service_price}</span>
-            <h3  className="block mt-2 text-xl font-semibold text-gray-900  hover:underline dark:text-gray-200 "  >{service_name}</h3>
+            <h3  className="block mt-2 text-xl font-semibold text-gray-900  hover:underline dark:text-gray-200 ">{service_name}</h3>
             <p className="  text-gray-600 mt-5 dark:text-gray-200">{description}</p>
         </div>
 

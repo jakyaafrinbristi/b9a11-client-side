@@ -1,28 +1,40 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const Booking = () => {
     const { user } = useContext(AuthContext);
     const service = useLoaderData();
-    const { service_name,  service_image, service_price, _id, serviceProvider } = service;
+    const { service_name, service_image, service_price, _id, serviceProvider } = service;
+     
+   const [startDate, setStartDate] = useState(new Date());
 
     // const navigate =useNavigate()
     const bookingHandler = async e => {
         e.preventDefault();
+        if(user ?.email === serviceProvider ?.email) return toast.error('Application not Permitted')
         const form = e.target;
         const serviceId = _id;
 
         const service_name = form.service_name.value;
         // console.log(service_name)
 
+        const email = user?.email;
+        
+        const name =user?.displayName;
 
         const service_price = parseFloat(form.service_price.value);
         const service_area = form.service_area.value;
         const service_address=form.service_address.value;
         const customization = form.customization.value;
         const service_image = form.service_image.value;
+        const date=startDate;
+
         const status = 'Pending';
 
         const bookingData = {
@@ -30,15 +42,32 @@ const Booking = () => {
             serviceId,
             service_name,
             service_price,
+            email,
+            name,
             service_area,
             service_image,
             service_address,
             customization,
             status,
+            date,
+            serviceProvider
 
 
         }
         console.log(bookingData)
+        
+        try{
+            const { data }=await axios.post(`${import.meta.env.VITE_API_URL}/booking`,bookingData)
+            console.log(data)
+            toast.success('booking added Successfully')
+            // navigate('/my-posted-job')
+      
+        
+          }
+          catch(err){
+            console.log(err)
+        
+          }
     }
     return (
         <div>
@@ -168,20 +197,29 @@ const Booking = () => {
                                 </label>
 
                             </div>
-                            <div className="mt-5 mb-5">
-                            <div className='flex flex-col gap-2 '>
+                            <div className="mt-5 mb-5 flex gap-5 w-full">
+                            <div className='flex flex-col gap-2 md:w-1/2'>
                 <label className='text-gray-700 ' htmlFor='customization'>
                   Customization
                 </label>
                 <select
                   name='customization'
                   id='customization'
-                  className='border p-2 rounded-md'
+                  className='border-pink-200 p-2 rounded-md'
                 >
                   <option value='Yes'>Yes</option>
                   <option value='No'>No</option>
                 
                 </select>
+              </div>
+              <div className='flex flex-col gap-2  md:w-1/2'>
+                <label className='text-gray-700'>Date</label>
+  
+                {/* Date picker input field */} 
+                <DatePicker className="border-pink-200 p-2 rounded-md" selected={startDate} onChange={(date) => setStartDate(date)} />  
+             
+               
+
               </div>
                             </div>
                           

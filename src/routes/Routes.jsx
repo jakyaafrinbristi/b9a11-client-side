@@ -5,7 +5,7 @@ import {
 import Root from "../layouts/Root";
 import Error from "../pages/Error";
 import Home from "../pages/Home";
-import Services from "../pages/Services";
+
 import AddService from "../pages/AddService";
 // import BookedService from "../pages/BookedService";
 import ManageService from "../pages/ManageService";
@@ -16,6 +16,8 @@ import ShowAll from "../pages/ShowAll";
 import ServiceDetails from "../pages/ServiceDetails";
 import Update from "../pages/Update";
 import Booking from "../components/Booking";
+import BookedService from "../pages/BookedService";
+import ServiceCard from "../components/ServiceCard";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -27,13 +29,14 @@ import Booking from "../components/Booking";
         element:<Home></Home>,
         loader:()=>fetch(`${import.meta.env.VITE_API_URL}/service`),
       },
-      {
-        path:'/services',
-        element:<Services></Services>
-      },
+    
       {
         path:'/add-service',
         element:<AddService></AddService>
+      },
+      {
+        path:'/services-card',
+        element:<ServiceCard></ServiceCard>
       },
       {
         path:'/manage-service',
@@ -71,7 +74,13 @@ import Booking from "../components/Booking";
         path:'/booking/:id',
         element:<Booking></Booking>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/service/${params.id}`),
-      }
+      },
+
+    {
+      path:"/booked",
+      element:<BookedService></BookedService>,
+      loader:()=>fetch(`${import.meta.env.VITE_API_URL}/booking`),
+    }
 
     ]
 
