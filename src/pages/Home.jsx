@@ -1,6 +1,8 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Carousel from "../components/Carousel";
 import ServiceCard from "../components/ServiceCard";
+import { Helmet } from "react-helmet-async";
+// import ServiceCard from "../components/ServiceCard";
 
 
 
@@ -10,6 +12,11 @@ const Home = () => {
     console.log(services)
     return (
         <div>
+             <Helmet>
+				<title>
+					Home
+				</title>
+			</Helmet>
 
             <Carousel></Carousel>
             <div className="container mx-auto px-8 py-10 ">

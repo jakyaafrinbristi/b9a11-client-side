@@ -47,12 +47,12 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[40] mt-3 w-52 p-2 shadow">
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/services-card'>Home</Link></li>
+            {/* <li><Link to='/services-card'>Home</Link></li> */}
            
             <li>
-              <Link to='/dashboard'>DashBoard</Link>
+              <Link to='/' >DashBoard</Link>
               <ul className="p-2">
                 <li><Link to='/add-service'>Add Service</Link></li>
                 <li><Link to='/manage-service'>Manage Service</Link></li>
@@ -64,7 +64,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='flex-1 '>
-          <Link to='/' className='flex gap-2 items-center'>
+          <Link to='/' className='flex  items-center'>
             <img className='w-[30%] ' src={logo} alt='' />
             <span className='font-bold'>LuxeLooks</span>
           </Link>
@@ -75,6 +75,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal flex gap-5 z-[50]">
           <NavLink to='/'
+      
             className={({ isActive }) =>
               isActive ? '  font-bold  mt-2' : 'font-semibold mt-2'
             } id='home'>Home</NavLink>
@@ -145,8 +146,8 @@ const Navbar = () => {
               role='button'
               className='btn btn-ghost btn-circle avatar '
             >
-              <div className='w-10 rounded-full' title={user?.displayName}>
-                <img
+              <div className='w-12 rounded-full' title={user?.displayName}>
+                <img 
                   referrerPolicy='no-referrer'
                   alt='User Profile Photo'
                   src={user?.photoURL}

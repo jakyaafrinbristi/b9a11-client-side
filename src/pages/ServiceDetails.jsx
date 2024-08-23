@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const ServiceDetails = () => {
@@ -9,7 +10,11 @@ const ServiceDetails = () => {
     const { service_name, service_area, service_image, service_price, description, _id,serviceProvider } = service
 
     return (
-        <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md container mx-auto mt-12 mb-10">
+        <div>
+            <Helmet>
+                <title>Service details</title>
+            </Helmet>
+               <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md container mx-auto mt-12 mb-10">
             <img className="object-cover w-full h-full" src={service_image} alt="Article" />
 
             <div className="p-6">
@@ -45,6 +50,8 @@ const ServiceDetails = () => {
                 </div>
             </div>
         </div>
+        </div>
+     
     );
 };
 

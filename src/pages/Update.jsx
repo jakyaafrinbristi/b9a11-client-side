@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 
 const Update = () => {
@@ -53,6 +54,9 @@ const Update = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Update</title>
+            </Helmet>
             <div className="  container px-8 py-10 mx-auto">
                 <h2 className="text-center bg-pink-50 py-5 text-2xl font-bold mb-10 underline">Update service</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 ">

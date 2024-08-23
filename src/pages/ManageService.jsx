@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -49,58 +50,63 @@ console.log(err.message)
 
 
     return (
-        <div className="container mx-auto px-6 py-10">
+     <div>
+        <Helmet>
+         <title>Manage Service</title>
+      </Helmet>
+           <div className="container mx-auto px-6 py-10">
            
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-    
-        {
-                services.map(service=><div     key={service._id} className="flex  overflow-hidden bg-white rounded-lg shadow-lg ">
-                    <div className="w-full bg-cover p-5" style={{backgroundImage: `url(${service.service_image})`}}></div>
-                
-                    <div className="w-full p-4 md:p-4">
-                        <h1 className="text-xl font-bold text-gray-800 ">{service.service_name}</h1>
-                
-                        <p className="mt-2 text-sm text-gray-600 ">{service.description}</p>
-                
-                    
-                
-                        <div >
-                            <h1 className="text-lg font-bold text-gray-700 mt-3  md:text-xl">${service.service_price}</h1>
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+       
+           {
+                   services.map(service=><div     key={service._id} className="flex  overflow-hidden bg-white rounded-lg shadow-lg ">
+                       <div className="w-full bg-cover p-5" style={{backgroundImage: `url(${service.service_image})`}}></div>
+                   
+                       <div className="w-full p-4 md:p-4">
+                           <h1 className="text-xl font-bold text-gray-800 ">{service.service_name}</h1>
+                   
+                           <p className="mt-2 text-sm text-gray-600 ">{service.description}</p>
+                   
+                       
+                   
+                           <div >
+                               <h1 className="text-lg font-bold text-gray-700 mt-3  md:text-xl">${service.service_price}</h1>
+                            
+   
+                           </div>
+                       
+                   
+                           <div className="flex gap-4 mt-3">
+                           <button onClick={()=>deleteButton(service._id)}>
+                           <MdDelete />
+                           
+                           </button>
+                           <Link to={`/update/${service._id}`}>
+                       
+                           <FaRegEdit />
+                           </Link>
+                           </div>
+                           <div className="mt-5 font-semibold "> user information:
+                           <div className=" flex items-center gap-2 mt-2">
+                       
+                       <img className="rounded-full w-[15%]" src={user?.photoURL} alt="" />
+                       <p>{user?.displayName}</p>
+                   </div>
+                           </div>
+                  
                          
-
-                        </div>
-                    
-                
-                        <div className="flex gap-4 mt-3">
-                        <button onClick={()=>deleteButton(service._id)}>
-                        <MdDelete />
-                        
-                        </button>
-                        <Link to={`/update/${service._id}`}>
-                    
-                        <FaRegEdit />
-                        </Link>
-                        </div>
-                        <div className="mt-5 font-semibold "> user information:
-                        <div className=" flex items-center gap-2 mt-2">
-                    
-                    <img className="rounded-full w-[15%]" src={user?.photoURL} alt="" />
-                    <p>{user?.displayName}</p>
-                </div>
-                        </div>
-               
-                      
-                      
-
-                        
-                        
-                    </div>
-                </div> )
-
-            }
-        </div>
-
-        </div>
+                         
+   
+                           
+                           
+                       </div>
+                   </div> )
+   
+               }
+           </div>
+   
+           </div>
+     </div>
     );
 };
 

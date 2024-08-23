@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useContext } from "react";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 
 const Registration = () => {
@@ -48,9 +49,16 @@ const Registration = () => {
     }
 
   }
+ 
 
     return (
-        <div className='flex justify-center mt-12 mb-12 items-center min-h-[calc(100vh-306px)]'>
+      <div>
+         <Helmet>
+				<title>
+					Registration
+				</title>
+			</Helmet>
+         <div className='flex justify-center mt-12 mb-12 items-center min-h-[calc(100vh-306px)]'>
           <div className='flex lg:w-1/3 max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg  lg:max-w-4xl bg-pink-100'>
             <div className=' px-6 py-8 md:px-8 lg:w-full'>
               {/* <div className='flex justify-center mx-auto'>
@@ -197,6 +205,8 @@ const Registration = () => {
             ></div> */}
           </div>
         </div>
+      </div>
+       
       )
     }
 
