@@ -17,9 +17,12 @@ import ServiceDetails from "../pages/ServiceDetails";
 import Update from "../pages/Update";
 import Booking from "../components/Booking";
 import BookedService from "../pages/BookedService";
-// import ServiceCard from "../components/ServiceCard";
+
 import PrivateRoute from "../provider/PrivateRoute";
-import ServiceCard from "../components/ServiceCard";
+import ServiceCard from "../pages/ServiceCard";
+import Services from "../pages/Services";
+
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -29,7 +32,8 @@ import ServiceCard from "../components/ServiceCard";
         {
         index:true,
         element:<Home></Home>,
-        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/service`),
+        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/service`)
+      
       },
     
       {
@@ -37,9 +41,15 @@ import ServiceCard from "../components/ServiceCard";
         element:<AddService></AddService>
       },
       {
+        path:'/services',
+        element:<Services></Services>,
+        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/service`),
+      },
+      {
         path:'/services-card',
         element:<ServiceCard></ServiceCard>
       },
+  
       {
         path:'/manage-service',
         element:<PrivateRoute><ManageService></ManageService></PrivateRoute>

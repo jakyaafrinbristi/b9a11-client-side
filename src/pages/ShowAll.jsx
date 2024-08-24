@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
-import ServiceCard from "../components/ServiceCard";
+
 import { Helmet } from "react-helmet-async";
+import ServiceCard from "./ServiceCard";
+
 
 
 const ShowAll = () => {
@@ -14,6 +16,7 @@ const ShowAll = () => {
             <div className="container mx-auto px-8 py-10 ">
                 <label className="input input-bordered flex items-center gap-2 mb-12 w-[50%] ml-44">
                     <input type="text" className="grow" placeholder="Search" />
+               
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"

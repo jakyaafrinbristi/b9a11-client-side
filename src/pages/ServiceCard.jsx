@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = ({service}) => {
     // const {user}=useContext(AuthContext)
+
+
     
  
     const {service_name,service_image,service_price,description,_id, serviceProvider}=service
+
  
     return (
            <div className="max-w-2xl overflow-hidden bg-gray rounded-lg shadow-md dark:bg-gray-900 ">

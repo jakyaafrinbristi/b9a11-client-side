@@ -1,8 +1,9 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Carousel from "../components/Carousel";
-import ServiceCard from "../components/ServiceCard";
+
 import { Helmet } from "react-helmet-async";
-// import ServiceCard from "../components/ServiceCard";
+import ServiceCard from "./ServiceCard";
+
 
 
 
@@ -27,6 +28,7 @@ const Home = () => {
                         services.slice(0, 6).map(service => <ServiceCard
                             key={service._id}
                             service={service}
+                         
                         ></ServiceCard>)
                     }
 

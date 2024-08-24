@@ -49,7 +49,8 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[40] mt-3 w-52 p-2 shadow">
             <li><Link to='/'>Home</Link></li>
-            {/* <li><Link to='/services-card'>Home</Link></li> */}
+            <li><Link to='/services'>Services</Link></li>
+   
            
             <li>
               <Link to='/' >DashBoard</Link>
@@ -74,16 +75,18 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal flex gap-5 z-[50]">
-          <NavLink to='/'
+          <NavLink to='/' 
       
             className={({ isActive }) =>
               isActive ? '  font-bold  mt-2' : 'font-semibold mt-2'
             } id='home'>Home</NavLink>
+            <NavLink to='/services' 
+      
+      className={({ isActive }) =>
+        isActive ? '  font-bold  mt-2' : 'font-semibold mt-2'
+      } id='home'>Services</NavLink>
 
-          <NavLink to='/services-card'
-            className={({ isActive }) =>
-              isActive ? '  font-bold  mt-2 ' : 'font-semibold mt-2'
-            } id='home'>Services</NavLink>
+     
 <div className="dropdown cursor-pointer ">
   <div tabIndex={0} role="button" className="mt-2 font-bold">DashBoard </div>
   <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-44  shadow ">
@@ -97,6 +100,7 @@ const Navbar = () => {
   <li><Link to='/service-do'>Service to do</Link></li>
   </div>
   </div>
+
 
   </ul>
 </div>
