@@ -67,9 +67,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='flex-1 '>
-          <Link to='/' className='flex  items-center'>
-            <img className='w-[30%] ' src={logo} alt='' />
-            <span className='font-bold'>LuxeLooks</span>
+          <Link to='/' className='flex  items-center '>
+            <img className='w-[30%] h-auto' src={logo} alt='' />
+            <span className='font-bold mr-10'> <span className="text-2xl text-pink-600 ">L</span> uxe<span className="text-2xl text-pink-600 ">L</span>ooks</span>
           </Link>
         </div>
 
@@ -80,17 +80,17 @@ const Navbar = () => {
           <NavLink to='/'
 
             className={({ isActive }) =>
-              isActive ? '  font-bold  mt-2' : 'font-semibold mt-2'
+              isActive ? '  font-bold text-pink-700 mt-2' : 'font-semibold mt-2'
             } id='home'>Home</NavLink>
           <NavLink to='/services'
 
             className={({ isActive }) =>
-              isActive ? '  font-bold  mt-2' : 'font-semibold mt-2'
+              isActive ? '  font-bold  text-pink-700  mt-2' : 'font-semibold mt-2'
             } id='home'>Services</NavLink>
           <NavLink to='/about'
 
             className={({ isActive }) =>
-              isActive ? '  font-bold  mt-2' : 'font-semibold mt-2'
+              isActive ? '  font-bold  text-pink-700 mt-2' : 'font-semibold mt-2'
             } id='home'>About Us</NavLink>
 
 
@@ -99,7 +99,7 @@ const Navbar = () => {
               tabIndex={0} role="button"
 
               className={({ isActive }) =>
-                isActive ? '  font-bold  ' : 'font-semibold '
+                isActive ? '  font-bold   text-pink-700' : 'font-semibold '
               } id='home'>DashBoard</NavLink>
 
 

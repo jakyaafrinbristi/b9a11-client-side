@@ -80,7 +80,7 @@ import About from "../pages/About";
       {
         path:'/show-all',
         element:<ShowAll></ShowAll>,
-        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/service`),
+      
       },
       {
         path:'/service/:id',

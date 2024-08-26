@@ -41,36 +41,46 @@ const ServiceToDo = () => {
   return (
     <div>
       <Helmet>
-         <title>Service-to-do</title>
+        <title>Service-to-do</title>
       </Helmet>
       <div className="container mx-auto px-8 mt-12 mb-10 grid grid-cols-1 md:grid-cols-3 gap-5">
 
         {
-          services.map(service => <div key={service._id} className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md bg-gray-600">
+          services.map(service => <div key={service._id} className="max-w-2xl overflow-hidden  rounded-lg shadow-md bg-pink-50">
             <img className="object-cover w-full h-64" src={service.service_image} alt="Article" />
 
             <div className="p-6">
+              <div className="flex justify-between items-center">
+                <span className="font-bold text-pink-600 dark:text-pink-400">Price:{service.service_price}</span>
+                <button className="mt-2 px-2  bg-white font-bold text-pink-400 rounded-full ">{service.service_area}</button>
+
+              </div>
               <div>
-                <span className="text-xs font-medium text-blue-600 dark:text-blue-400">Price:{service.service_price}</span>
-                <a href="#" className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline" role="link">{service.service_name}</a>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Service Area:{service.service_area}</p>
+                <a href="#" className="block mt-2 text-xl font-semibold text-gray-600 hover:underline" role="link">{service.service_name}</a>
+                <div>
+                <p className="font-semibold mt-3">Address:<span className="text-pink-500 ml-2">{service.service_address}</span></p>
+                <p className="font-semibold mt-3">Customization:<span className="text-pink-500 ml-2">{service.customization}</span></p>
+
+              
+                </div>
+            
 
               </div>
               <div className="mb-10">
-                <div className='flex flex-col gap-2 md:w-3/4'>
-                  <label className='text-gray-700' htmlFor={`status-${service._id}`}>
-                    Status
+                <div className='flex flex-col lg:flex-row  gap-5 items-center '>
+                  <label className='text-gray-700 mt-3  font-bold' htmlFor={`status-${service._id}`}>
+                    Status:
                   </label>
                   <select
                     name={`status-${service._id}`}
                     id={`status-${service._id}`}
-                    className='border-pink-200 p-2 rounded-md'
+                    className='border-pink-200 rounded-md mt-2'
                     value={service.status}
                     onChange={(e) => handleStatusChange(service._id, service.status, e.target.value)}
                   >
-                    <option value='Pending'>Pending</option>
-                    <option value='Working'>Working</option>
-                    <option value='Complete'>Completed</option>
+                    <option className="text-pink-500 bg-pink-100" value='Pending'>Pending</option>
+                    <option className="text-pink-500 bg-pink-100" value='Working'>Working</option>
+                    <option className="text-pink-500 bg-pink-100" value='Complete'>Completed</option>
                   </select>
                 </div>
               </div>
@@ -79,9 +89,9 @@ const ServiceToDo = () => {
                 <div className="flex items-center">
                   <div className="flex items-center">
                     <img className="object-cover h-10 rounded-full" src={service.serviceProvider?.photo} />
-                    <a href="#" className="mx-2 font-semibold text-gray-700 dark:text-gray-200" role="link">{service.serviceProvider?.name}</a>
+                    <a href="#" className="mx-2 font-semibold text-gray-700 " role="link">{service.serviceProvider?.name}</a>
                   </div>
-                  <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">{new Date(service.date).toLocaleDateString()}</span>
+                  <span className="mx-1 text-xs font-semibold text-pink-600">{new Date(service.date).toLocaleDateString()}</span>
                 </div>
               </div>
             </div>
