@@ -4,6 +4,8 @@ import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import add from "../json/add.json"
 
 
 const AddService = () => {
@@ -163,6 +165,9 @@ const AddService = () => {
 
 
                         </form>
+                    </div>
+                    <div>
+                    <Lottie animationData={add} loop={true} />
                     </div>
                 </div>
 

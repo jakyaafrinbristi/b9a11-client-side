@@ -3,6 +3,10 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import login from "../../json/login.json";
+
+
 
 
 const Login = () => {
@@ -65,10 +69,10 @@ const Login = () => {
 					Login
 				</title>
 			</Helmet>
-			<div className='container mx-auto px-10 mt-12 mb-12 '>
-				<div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-pink-50 dark:text-gray-800">
+			<div className='container mx-auto px-10 mt-12 mb-12  grid grid-cols-1 lg:grid-cols-2'>
+				<div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-pink-50 dark:text-gray-800  ">
 					<h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
-					<p className="text-sm text-center dark:text-gray-600">Dont have account?
+					<p className="text-sm text-center dark:text-gray-600">Don't have account?
 						<Link to='/registration' className="focus:underline hover:underline">Sign up here</Link>
 					</p>
 					<div className="my-6 space-y-4">
@@ -102,6 +106,11 @@ const Login = () => {
 						<button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-pink-400 dark:text-gray-50">Sign in</button>
 					</form>
 				</div>
+				<div>
+				<Lottie animationData={login} loop={true} />
+				</div>
+				
+			
 			</div>
 		</div>
 	);

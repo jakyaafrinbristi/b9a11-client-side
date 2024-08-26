@@ -21,6 +21,8 @@ import BookedService from "../pages/BookedService";
 import PrivateRoute from "../provider/PrivateRoute";
 import ServiceCard from "../pages/ServiceCard";
 import Services from "../pages/Services";
+import Dashboard from "../pages/Dashboard";
+import About from "../pages/About";
 
 
   const router = createBrowserRouter([
@@ -39,6 +41,14 @@ import Services from "../pages/Services";
       {
         path:'/add-service',
         element:<AddService></AddService>
+      },
+      {
+        path:'/about',
+        element:<About></About>
+      },
+      {
+        path:'/dashboard',
+        element:<Dashboard></Dashboard>
       },
       {
         path:'/services',

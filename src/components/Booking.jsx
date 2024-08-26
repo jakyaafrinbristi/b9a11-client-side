@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import makeup from "../json/makeup.json";
 
 
 const Booking = () => {
@@ -78,7 +80,7 @@ const Booking = () => {
             </Helmet>
             <div className="container px-8 py-10 mx-auto">
                 <h2 className="text-center bg-pink-50 py-5 text-2xl font-bold mb-10 underline">Booking service</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 ">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
                     <div className="bg-pink-50 px-5 py-5">
                         {/* first row */}
@@ -256,7 +258,11 @@ const Booking = () => {
 
                         </form>
                     </div>
+                    <div>
+					<Lottie animationData={makeup} loop={true} />
+				</div>
                 </div>
+                
 
 
             </div>

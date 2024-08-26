@@ -4,6 +4,8 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import update from "../json/update.json"
 
 
 const Update = () => {
@@ -172,7 +174,11 @@ const Update = () => {
 
                         </form>
                     </div>
+                    <div>
+                    <Lottie animationData={update} loop={true} />
+                    </div>
                 </div>
+
 
 
             </div>
