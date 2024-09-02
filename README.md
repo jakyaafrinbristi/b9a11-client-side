@@ -1,7 +1,6 @@
 - website name:LuxeLooks
 
-- liveSite Url:https://art-craft-project-e36fd.web.app
-
+- liveSite Url:https://b9a11-76a11.web.app
 
 
 

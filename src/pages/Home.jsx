@@ -1,19 +1,20 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Carousel from "../components/Carousel";
 
-import { Helmet } from "react-helmet-async";
-import ServiceCard from "./ServiceCard";
+
+
 import About from "./About";
 import {motion} from 'framer-motion'
 import { fadeIn } from '../variants';
 import Services from "./Services";
 
+import { Helmet } from "react-helmet-async";
 
 
 
 const Home = () => {
-    const services = useLoaderData()
-    console.log(services)
+    // const services = useLoaderData()
+    // console.log(services)
     return (
         <div>
              <Helmet>

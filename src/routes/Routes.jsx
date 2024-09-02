@@ -79,7 +79,7 @@ import About from "../pages/About";
       },
       {
         path:'/show-all',
-        element:<ShowAll></ShowAll>,
+        element:<PrivateRoute><ShowAll></ShowAll></PrivateRoute>,
       
       },
       {
