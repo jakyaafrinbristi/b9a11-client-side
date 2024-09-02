@@ -1,8 +1,19 @@
-# React + Vite
+- website name:LuxeLooks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- liveSite Url:https://art-craft-project-e36fd.web.app
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+- **Responsive Design**: Fully responsive across mobile, tablet, and desktop.
+- **Framer Motion**: Added smooth animations for enhanced user interaction.
+- **UI Components**: Integrated and customized Mamba UI,Daisy UI and Meraki UI components.
+- **Theme Toggle**: Enabled light/dark mode switching for a personalized experience.
+- **Clean UI**: Focused on visual appeal with proper color contrast and alignment.
+
+
+
+
+
+
+

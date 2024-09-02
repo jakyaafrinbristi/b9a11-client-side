@@ -66,7 +66,7 @@ console.log(err.message)
              whileInView={"show"}
              viewport={{once:false, amount:0.7}}
              className=" container px-8 mt-5 mx-auto">
-                <h2 className="text-center bg-pink-50 py-5 text-2xl font-bold mb-10 underline"><span className="font-bold text-pink-500">M</span>anage <span className="font-bold text-pink-500">S</span>ervice</h2>
+                <h2 className="text-center bg-pink-50 py-5 text-2xl font-bold mb-5 underline"><span className="font-bold text-pink-500">M</span>anage <span className="font-bold text-pink-500">S</span>ervice</h2>
       </motion.div>
           
            

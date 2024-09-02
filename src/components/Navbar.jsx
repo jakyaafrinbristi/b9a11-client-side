@@ -80,26 +80,26 @@ const Navbar = () => {
           <NavLink to='/'
 
             className={({ isActive }) =>
-              isActive ? '  font-bold text-pink-700 mt-2' : 'font-semibold mt-2'
-            } id='home'>Home</NavLink>
+              isActive ? '  font-bold text-pink-700 mt-2 underline' : 'font-bold mt-2'
+            } id='home'><span className="text-pink-600">H</span>ome</NavLink>
           <NavLink to='/services'
 
             className={({ isActive }) =>
-              isActive ? '  font-bold  text-pink-700  mt-2' : 'font-semibold mt-2'
-            } id='home'>Services</NavLink>
+              isActive ? '  font-bold  text-pink-700 underline mt-2' : 'font-bold mt-2'
+            } ><span className="text-pink-600">S</span>ervices</NavLink>
           <NavLink to='/about'
 
             className={({ isActive }) =>
-              isActive ? '  font-bold  text-pink-700 mt-2' : 'font-semibold mt-2'
-            } id='home'>About Us</NavLink>
+              isActive ? '  font-bold  text-pink-700 mt-2 underline' : 'font-bold mt-2'
+            } id='home'><span className="text-pink-600">A</span>bout Us</NavLink>
 
 {user && (<div className="dropdown cursor-pointer mt-2">
             <NavLink to='/dashboard'
               tabIndex={0} role="button"
 
               className={({ isActive }) =>
-                isActive ? '  font-bold   text-pink-700' : 'font-semibold '
-              } id='home'>DashBoard</NavLink>
+                isActive ? '  font-bold underline  text-pink-700' : 'font-bold '
+              } id='home'><span className="text-pink-600" >D</span>ashBoard</NavLink>
 
 
             <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-44  shadow ">
@@ -154,7 +154,7 @@ const Navbar = () => {
           <Link to='/login' className="relative px-6 py-3 font-bold text-black group">
             <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-pink-300 group-hover:translate-x-0 group-hover:translate-y-0"></span>
             <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
-            <span className="relative">Login</span>
+            <span className="relative"><span className="text-pink-700 text-xl">L</span>ogin</span>
           </Link>
         </div>)
         }
@@ -173,7 +173,7 @@ const Navbar = () => {
             </div>
             <ul tabIndex={0} className=" dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
               <li className='mt-2'>
-                <button onClick={logOut} className='bg-pink-200 block text-center text-pink-700'>Logout</button>
+                <button onClick={logOut} className='bg-pink-200 block text-center font-bold'><span className="font-bold text-pink-700 ">L</span>og<span className="font-bold text-pink-700 ">O</span>ut</button>
               </li>
             </ul>
 
