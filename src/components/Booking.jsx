@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import DatePicker from "react-datepicker";
@@ -8,6 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-react";
 import makeup from "../json/makeup.json";
+import {motion} from 'framer-motion'
+import { fadeIn } from '../variants';
 
 
 const Booking = () => {
@@ -17,7 +19,7 @@ const Booking = () => {
      
    const [startDate, setStartDate] = useState(new Date());
 
-    // const navigate =useNavigate()
+    const navigate =useNavigate()
     const bookingHandler = async e => {
         e.preventDefault();
         if(user ?.email === serviceProvider ?.email) return toast.error('Application not Permitted')
@@ -63,7 +65,7 @@ const Booking = () => {
             const { data }=await axios.post(`${import.meta.env.VITE_API_URL}/booking`,bookingData)
             console.log(data)
             toast.success('booking added Successfully')
-            // navigate('/my-posted-job')
+            navigate('/booked')
       
         
           }
@@ -78,7 +80,13 @@ const Booking = () => {
             <Helmet>
             <title>Booking</title>
             </Helmet>
-            <div className="container px-8 py-10 mx-auto">
+            <motion.div
+               variants={fadeIn("right",0.3)}
+               initial="hidden"
+               whileInView={"show"}
+               viewport={{once:false, amount:0.7}}
+            
+             className="container px-8 py-10 mx-auto">
                 <h2 className="text-center bg-pink-50 py-5 text-2xl font-bold mb-10 underline">Booking service</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
@@ -265,7 +273,7 @@ const Booking = () => {
                 
 
 
-            </div>
+            </motion.div>
 
         </div>
     );

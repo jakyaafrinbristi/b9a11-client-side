@@ -6,11 +6,14 @@ import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-react";
 import add from "../json/add.json"
+import { useNavigate } from "react-router-dom";
+import {motion} from 'framer-motion'
+import { fadeIn } from '../variants';
 
 
 const AddService = () => {
     const { user } = useContext(AuthContext)
-    // const navigate =useNavigate()
+    const navigate =useNavigate()
     const serviceHandler = async e => {
         e.preventDefault();
         const form = e.target;
@@ -24,6 +27,7 @@ const AddService = () => {
         const description = form.description.value;
 
         const beautyService = {
+            
             service_name,
             service_price,
             service_area,
@@ -42,7 +46,7 @@ const AddService = () => {
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/service`, beautyService)
             console.log(data)
             toast.success('service added Successfully')
-            // navigate('/my-posted-job')
+            navigate('/manage-service')
 
 
         }
@@ -57,7 +61,12 @@ const AddService = () => {
             <Helmet>
                 <title>Add-Service</title>
             </Helmet>
-            <div className="  container px-8 py-10 mx-auto">
+            <motion.div
+             variants={fadeIn("left",0.3)}
+             initial="hidden"
+             whileInView={"show"}
+             viewport={{once:false, amount:0.7}}
+             className="  container px-8 py-10 mx-auto">
                 <h2 className="text-center bg-pink-50 py-5 text-2xl font-bold mb-10 underline">Add service</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 ">
 
@@ -172,7 +181,7 @@ const AddService = () => {
                 </div>
 
 
-            </div>
+            </motion.div>
 
         </div>
     );

@@ -4,7 +4,9 @@ import Carousel from "../components/Carousel";
 import { Helmet } from "react-helmet-async";
 import ServiceCard from "./ServiceCard";
 import About from "./About";
-
+import {motion} from 'framer-motion'
+import { fadeIn } from '../variants';
+import Services from "./Services";
 
 
 
@@ -24,34 +26,27 @@ const Home = () => {
        
             <About></About>
 
-        
-            <div className="container mx-auto px-8 py-10 ">
-                <h1 className="text-center font-bold text-2xl underline mt-5">Popular Services
+        <Services></Services>
+          
                     
-                </h1>
-                <p className="max-w-2xl mx-auto text-center my-10 text-gray-500">Experience the luxury and convenience of professional beauty treatments at your doorstep, where skilled specialists transform your home into a personal spa, offering everything from rejuvenating facials and relaxing massages to exquisite manicures and hairstyling</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {
-                        services.slice(0, 6).map(service => <ServiceCard
-                            key={service._id}
-                            service={service}
-                         
-                        ></ServiceCard>)
-                    }
-
-                </div>
-                <div className=" mt-12 text-center">
+            
+                <motion.div 
+                   variants={fadeIn("up",0.3)}
+                   initial="hidden"
+                   whileInView={"show"}
+                   viewport={{once:false, amount:0.6}}
+                className=" mt-12 text-center mb-10">
                     <Link to='/show-all'  className="relative inline-block text-lg group">
-                        <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
+                        <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-pink-700 transition-colors duration-300 ease-out border-2 border-pink-800 rounded-lg group-hover:text-white">
                             <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-                            <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
+                            <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-pink-900 group-hover:-rotate-180 ease"></span>
                             <span className="relative">Show All</span>
                         </span>
-                        <span className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
+                        <span className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-pink-800 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
                     </Link>
-                </div>
+                </motion.div>
             </div>
-        </div>
+       
     );
 };
 

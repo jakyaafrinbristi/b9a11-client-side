@@ -4,21 +4,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-react";
-import login from "../../json/login.json";
+import login from "../../json/girls.json";
 
 
 
 
 const Login = () => {
-	const { signIn, signInWithGoogle, user } = useContext(AuthContext)
+	const { signIn, signInWithGoogle } = useContext(AuthContext)
 	const navigate = useNavigate()
 	const location = useLocation()
 	const from = location.state || '/'
-	useEffect(() => {
-		if (user) {
-			navigate('/')
-		}
-	}, [navigate, user])
+
 
 	// googleSignIn
 	const handleGoogleSignIn = async () => {

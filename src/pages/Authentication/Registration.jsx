@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useContext } from "react";
 import toast from "react-hot-toast";
@@ -10,13 +10,18 @@ import registration from "../../json/registration.json";
 
 const Registration = () => {
 	const navigate = useNavigate()
-	const { createUser, signInWithGoogle, user, setUser, updateUserProfile, loading } = useContext(AuthContext);
+		const location = useLocation()
+
+	const { createUser, signInWithGoogle, user, setUser, updateUserProfile } = useContext(AuthContext);
+		const from = location.state || '/'
 	// googleSignIn
 	const handleGoogleSignUp = async () => {
 		try {
 			await signInWithGoogle()
 			navigate('/')
-			toast.success('Signin Successful')
+			navigate(from, { replace: true })
+
+			toast.success('SignIn Successful')
 
 		}
 		catch (err) {

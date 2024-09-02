@@ -18,7 +18,7 @@ import Update from "../pages/Update";
 import Booking from "../components/Booking";
 import BookedService from "../pages/BookedService";
 
-import PrivateRoute from "../provider/PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 import ServiceCard from "../pages/ServiceCard";
 import Services from "../pages/Services";
 import Dashboard from "../pages/Dashboard";
@@ -84,7 +84,7 @@ import About from "../pages/About";
       },
       {
         path:'/service/:id',
-        element:<ServiceDetails></ServiceDetails>,
+        element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/service/${params.id}`),
       },
       {

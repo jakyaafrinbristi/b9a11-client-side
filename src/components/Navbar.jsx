@@ -54,7 +54,7 @@ const Navbar = () => {
             '>About Us</Link></li>
 
 
-            <li>
+          {user && (  <li>
               <Link to='/'>DashBoard</Link>
               <ul className="p-2">
                 <li><Link to='/add-service'>Add Service</Link></li>
@@ -62,14 +62,14 @@ const Navbar = () => {
                 <li><Link to='/booked'>Booked-Services</Link></li>
                 <li><Link to='/service-do'>Service to do</Link></li>
               </ul>
-            </li>
+            </li>)}
 
           </ul>
         </div>
         <div className='flex-1 '>
           <Link to='/' className='flex  items-center '>
             <img className='w-[30%] h-auto' src={logo} alt='' />
-            <span className='font-bold mr-10'> <span className="text-2xl text-pink-600 ">L</span> uxe<span className="text-2xl text-pink-600 ">L</span>ooks</span>
+            <span className='font-bold '> <span className="text-3xl mt-3 text-pink-600 ">L</span>uxe<span className="text-3xl mt-3 text-pink-600 ">L</span>ooks</span>
           </Link>
         </div>
 
@@ -93,8 +93,7 @@ const Navbar = () => {
               isActive ? '  font-bold  text-pink-700 mt-2' : 'font-semibold mt-2'
             } id='home'>About Us</NavLink>
 
-
-          <div className="dropdown cursor-pointer mt-2">
+{user && (<div className="dropdown cursor-pointer mt-2">
             <NavLink to='/dashboard'
               tabIndex={0} role="button"
 
@@ -117,7 +116,8 @@ const Navbar = () => {
 
 
             </ul>
-          </div>
+          </div>)}
+          
 
         </ul>
       </div>
@@ -171,9 +171,9 @@ const Navbar = () => {
                 src={user?.photoURL}
               />
             </div>
-            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <ul tabIndex={0} className=" dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
               <li className='mt-2'>
-                <button onClick={logOut} className='bg-gray-200 block text-center'>Logout</button>
+                <button onClick={logOut} className='bg-pink-200 block text-center text-pink-700'>Logout</button>
               </li>
             </ul>
 

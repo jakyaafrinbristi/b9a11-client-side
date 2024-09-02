@@ -1,6 +1,8 @@
 
 import { GoArrowRight } from "react-icons/go";
 import { Link } from "react-router-dom";
+import {motion} from 'framer-motion'
+import { fadeIn } from '../variants';
 
 
 const ServiceCard = ({ service }) => {
@@ -13,7 +15,12 @@ const ServiceCard = ({ service }) => {
 
 
     return (
-        <div className="max-w-2xl overflow-hidden bg-gray rounded-lg shadow-md bg-pink-50 ">
+        <motion.div
+        variants={fadeIn("up",0.3)}
+                 initial="hidden"
+                 whileInView={"show"}
+                 viewport={{once:false, amount:0.6}}
+         className="max-w-2xl overflow-hidden bg-gray mt-10 mb-10 rounded-lg shadow-md bg-pink-50 ">
             <img className="object-cover w-full h-64" src={service_image} alt="Article" />
 
             <div className="p-5 ">
@@ -41,7 +48,7 @@ const ServiceCard = ({ service }) => {
 
             </div>
 
-        </div>
+        </motion.div>
 
 
 

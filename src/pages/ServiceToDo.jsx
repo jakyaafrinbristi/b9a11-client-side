@@ -3,9 +3,13 @@ import { useContext, useEffect, useState } from "react";
 // import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
+import {motion} from 'framer-motion'
+import { fadeIn } from '../variants';
 
 
 const ServiceToDo = () => {
+  const navigate =useNavigate()
   const { user } = useContext(AuthContext);
   const [services, setServices] = useState([])
   useEffect(() => {
@@ -13,26 +17,33 @@ const ServiceToDo = () => {
   }, [user])
   const getData = async () => {
     const { data } = await axios(`${import.meta.env.VITE_API_URL}/booking/${user?.email}`)
-    console.log(data)
-    console.log(user)
+    // console.log(data)
+    // console.log(user)
     setServices(data)
   }
   const handleStatusChange = async (serviceId, prevStatus, newStatus) => {
     if (prevStatus === newStatus) {
-      return console.log('sorry bhai');
+      return console.log('Sorry, the status is already set to the selected option.');
     }
 
     try {
       const response = await axios.patch(`${import.meta.env.VITE_API_URL}/booking/${serviceId}`, {
         status: newStatus,
-      });
+       
+     
+ 
+       
+      }
+   );
 
       console.log('Status updated:', response.data);
 
       // Update the services state with the new status
       setServices(services.map(service =>
         service._id === serviceId ? { ...service, status: newStatus } : service
+       
       ));
+      navigate('/booked')
     } catch (error) {
       console.error('Error updating status:', error);
     }
@@ -43,11 +54,27 @@ const ServiceToDo = () => {
       <Helmet>
         <title>Service-to-do</title>
       </Helmet>
+      <motion.div
+             variants={fadeIn("up",0.3)}
+             initial="hidden"
+             whileInView={"show"}
+             viewport={{once:false, amount:0.7}}
+             className="container px-8 py-10 mx-auto">
+                <h2 className="text-center bg-pink-50 py-5 text-2xl font-bold mb-10 underline"><span className="text-pink-600">S</span>ervice-<span className="text-pink-600">T</span>o-<span className="text-pink-600">D</span>o</h2>
+                </motion.div>
+      
       <div className="container mx-auto px-8 mt-12 mb-10 grid grid-cols-1 md:grid-cols-3 gap-5">
 
-        {
-          services.map(service => <div key={service._id} className="max-w-2xl overflow-hidden  rounded-lg shadow-md bg-pink-50">
-            <img className="object-cover w-full h-64" src={service.service_image} alt="Article" />
+
+        {services.length > 0 ? (
+          services.map(service =>(
+           <motion.div 
+           variants={fadeIn("up",0.3)}
+             initial="hidden"
+             whileInView={"show"}
+             viewport={{once:false, amount:0.7}}
+           key={service._id} className="max-w-2xl overflow-hidden  rounded-lg shadow-md mt-10 mb-10 bg-pink-50">
+            <img className="object-cover w-full h-64 " src={service.service_image} alt="Article" />
 
             <div className="p-6">
               <div className="flex justify-between items-center">
@@ -95,8 +122,12 @@ const ServiceToDo = () => {
                 </div>
               </div>
             </div>
-          </div>)
-        }
+          </motion.div>))
+          )
+          : (
+            <p className="text-center text-pink-600 font-bold text-lg">No services found.</p>
+          )}
+        
 
 
       </div>

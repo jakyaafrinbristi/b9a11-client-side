@@ -9,7 +9,7 @@ import ServiceCard from "./ServiceCard";
 
 
 const ShowAll = () => {
-    const [itemsPerPage, setItemsPerPage] = useState(2)
+    const [itemsPerPage, setItemsPerPage] = useState(6)
     const [currentPage, setCurrentPage] = useState(1)
     const [count, setCount] = useState(0)
     const [search, setSearch] = useState('')
@@ -61,7 +61,7 @@ const ShowAll = () => {
             </Helmet>
             <div className="container mx-auto px-8 py-10 ">
                 <form onSubmit={handleSearch}>
-                        <label className="input input-bordered flex items-center gap-2 mb-12 w-[50%] ml-44">
+                        <label className="input input-bordered flex items-center gap-2 mb-12 w-[50%] ml-80 bg-pink-50 border-pink-400 text-pink-600">
                     <input type="text" name='search' className="grow" placeholder="Enter Service" />
 
                    <button> <svg
@@ -76,7 +76,7 @@ const ShowAll = () => {
                     </svg></button>
                 </label></form>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 ml-8">
                     {
                         services.map(service => <ServiceCard
                             key={service._id}
