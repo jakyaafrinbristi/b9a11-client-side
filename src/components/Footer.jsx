@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 const Footer = () => {
     const {signInWithFacebook}=useContext(AuthContext)
     const navigate =useNavigate()
+    const currentYear = new Date().getFullYear();
+
     const handleFacebookSignIn = async () => {
 		try {
 			const result = await signInWithFacebook()
@@ -43,7 +45,7 @@ const Footer = () => {
                     <hr className="my-6 border-gray-200 md:my-10 dark:border-pink-700" />
 
                     <div className="flex flex-col items-center sm:flex-row sm:justify-between">
-                        <p className="text-sm text-pink-500 font-bold">© Copyright 2021. All Rights Reserved.</p>
+                        <p className="text-sm text-pink-500 font-bold"> &copy; {currentYear} LuxeLooks. All Rights Reserved.</p>
 
                         <div className="flex -mx-2 items-center">
 
